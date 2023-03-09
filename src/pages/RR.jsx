@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Header from "../components/Header/Header";
 
-const NHS = () => {
+const RR = () => {
     return (
       <Fragment>
         <Header />
@@ -10,4 +10,4 @@ const NHS = () => {
     );
   };
   
-  export default NHS;
+  export default RR;
