@@ -1,7 +1,18 @@
-.box {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 100px;
-    margin-bottom: 50px;
-  }
+#Home.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+  grid-gap: 20px; /* Spacing between the boxes */
+}
+
+#Home.box-container {
+  display: flex;
+  flex-direction: column;
+}
+#Home .box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 100px;
+  
+}
+
   

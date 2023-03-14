@@ -2,20 +2,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: #020C43;
     color: #fff;
-    padding: 10px;
+    padding: 0;
     font-size: 1.2rem;
+    
   }
   
   .title {
     font-weight: bold;
+    margin-top: 0px;
   }
   
   .navigation ul {
     display: flex;
     list-style: none;
-    margin: 0;
+    margin-top: 30px;
     padding: 0;
   }
   
@@ -70,15 +72,16 @@
   
   .search {
     display: flex;
-    align-items: center;
+    align-items: right;
   }
   
   .search input[type="text"] {
     padding: 5px;
-    margin-right: 5px;
+    margin-right: 1px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    margin-bottom: 20px;
   }
   
   .search button {
@@ -89,6 +92,9 @@
     color: #333;
     font-size: 1rem;
     cursor: pointer;
+    margin-bottom: 20px;
+    
+
   }
   
   .search button:hover {

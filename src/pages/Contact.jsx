@@ -46,7 +46,7 @@ const Contact = () => {
           />
         </div>
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message"id="message" >Message </label>
           <textarea
             id="message"
             value={message}

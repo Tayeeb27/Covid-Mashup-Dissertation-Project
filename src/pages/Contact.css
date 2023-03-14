@@ -1,33 +1,28 @@
 form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   
-  label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    align-self: flex-start;
-    
-  }
   
-  input,textarea {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    left: 80px;
-    border-radius: 0.25rem;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    
-    
-   
-  }
+}
+label {
+  display: block;
+  width: 100px;
+  text-align: left;
+  margin-right: 140px;
+}
+
+input {
+  flex: 1;
+  margin-left: 10px;
   
-  textarea {
-    height: 150px;
-  }
+}
+textarea {
+  flex: 1;
+  margin-left: 10px;
+  padding:40px;
+}
   
   button[type="submit"] {
     padding: 0.5rem 1rem;

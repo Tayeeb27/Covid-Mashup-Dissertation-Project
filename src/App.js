@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import Deaths from './pages/Deaths';
 import Cases from './pages/Cases';
-import RecoveryRates from './pages/RR';
+import RR from './pages/RR';
 import News from './pages/News';
 import NHS from './pages/NHS';
 import Laws from './pages/Laws';
@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/deaths" component={Deaths} />
         <Route path="/cases" component={Cases} />
-        <Route path="/recovery-rates" component={RecoveryRates} />
+        <Route path="/rr" component={RR} />
         <Route path="/news" component={News} />
         <Route path="/nhs" component={NHS} />
         <Route path="/laws" component={Laws} />
