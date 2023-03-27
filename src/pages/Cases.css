@@ -36,8 +36,10 @@
   .container {
       padding: 10px;
   }
-  .box {
+  #Casesbox.box {
       padding-bottom: 300px;
+      background-color: 0;
+      display:block;
   }
   
   
