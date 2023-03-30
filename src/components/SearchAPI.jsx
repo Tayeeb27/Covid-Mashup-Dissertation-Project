@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function NHS() {
+export const SearchAPI =()=> {
   const [results, setResults] = useState([]);
 
   const search = async () => {
@@ -20,10 +20,12 @@ function NHS() {
       console.log(error);
     }
   };
-
+  useEffect(() => {
+    search();
+  }, []);
   return (
     <div>
-      <button onClick={search}>Search</button>
+      
       <ul>
         {results.map((result) => (
           <li key={result.id}>
@@ -36,4 +38,4 @@ function NHS() {
   );
 }
 
-export default NHS;
+export default SearchAPI;

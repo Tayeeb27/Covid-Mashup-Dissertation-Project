@@ -12,8 +12,9 @@
 #Home.box {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 200px;
-  
+  padding: 0px;
+  height: 300px;
+  width: 400px;
 }
 
 #HomeNews.box{
@@ -23,5 +24,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     height: 300px; /* set a fixed height */
+    
     overflow-y: auto;
 }  

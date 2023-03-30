@@ -5,12 +5,14 @@ import "./Home.css";
 import {CasesAPI} from '../components/CasesAPI'
 import {DeathsAPI} from '../components/DeathsAPI'
 import {NewsAPI} from '../components/NewsAPI'
+import {VaccinationAPI} from '../components/VaccinationAPI'
+import {SearchAPI} from '../components/SearchAPI'
 
 function Home() {
 const casesChart = CasesAPI();
 const deathsChart = DeathsAPI();
 const NewsInfo = NewsAPI();
-
+const vaccinationChart = VaccinationAPI();
   return (
     <Fragment>
       <Header />
@@ -18,22 +20,23 @@ const NewsInfo = NewsAPI();
         A web application with all the information and data you need to know
         regarding COVID-19 in the UK
       </h3>
-       <div className="container" id="HomeDeath">
-        <div className="box-container" id="HomeDeath">
+       <div className="container" id="Home">
+        <div className="box-container" id="Home">
           <h2>Deaths</h2>
-          <div className="box" id="HomeDeath">
+          <div className="box" id="Home">
           {deathsChart}
           </div>
         </div>
         <div className="box-container"id="Home">
           <h2>Cases</h2>
-        <div className="box">
+        <div className="box"id="Home">
           {casesChart}
         </div>
         </div>
         <div className="box-container"id="Home">
-          <h2>Recovery Rates</h2>
-        <div className="box">
+          <h2>Vaccinations</h2>
+        <div className="box"id="Home">
+        {vaccinationChart}
         </div>
         </div>
         <div className="box-container" id="HomeNews">
@@ -52,8 +55,10 @@ const NewsInfo = NewsAPI();
           </div>
         </div>
          <div className="box-container"id="Home">
-          <h2>NHS</h2>
-        <div className="box">
+          <h2>Bing Search</h2>
+        <div className="box"id="HomeNews">
+        <SearchAPI />
+
         </div>
         </div>
         <div className="box-container"id="Home">

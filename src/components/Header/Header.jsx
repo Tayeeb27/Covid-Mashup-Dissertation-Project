@@ -12,7 +12,7 @@ function Banner() {
               <div className="dropdown-content">
                 <a href="Deaths">Deaths</a>
                 <a href="Cases">Cases</a>
-                <a href="RR">Recovery Rates</a>
+                <a href="Vaccination">Vaccination</a>
                 <a href="News">News</a>
                 <a href="NHS">NHS</a>
                 <a href="Laws">Laws</a>
