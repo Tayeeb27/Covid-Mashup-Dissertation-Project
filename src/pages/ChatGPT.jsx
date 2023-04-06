@@ -1,10 +1,10 @@
 import React, { Fragment} from "react";
 import Header from "../components/Header/Header";
-import "./News.css"
-import {NewsAPI} from '../components/NewsAPI'
+import "./ChatGPT.css"
+import {ChatgptAPI} from '../components/ChatGPTAPI'
 
-const News = () => {
-  const NewsInfo = NewsAPI();
+const ChatGPT = () => {
+ 
 
     return (
       <Fragment>
@@ -13,11 +13,11 @@ const News = () => {
         <div className="container">
           <h2>News</h2>
         <div className="box"> 
-        <NewsAPI/>
+        <ChatgptAPI/>
         </div>
         </div>
       </Fragment>
     );
   };
   
-  export default News;
+  export default ChatGPT;

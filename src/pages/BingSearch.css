@@ -1,12 +1,12 @@
-/* NHS.css */
+/* BingSearch.css */
 
-#NHS.container {
+#BingSearch.container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
   }
   
-  #NHS .box {
+  #BingSearch .box {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 100px;

@@ -14,7 +14,7 @@ function Banner() {
                 <a href="Cases">Cases</a>
                 <a href="Vaccination">Vaccination</a>
                 <a href="News">News</a>
-                <a href="NHS">NHS</a>
+                <a href="BingSearch">BingSearch</a>
                 <a href="Laws">Laws</a>
               </div>
             </li>

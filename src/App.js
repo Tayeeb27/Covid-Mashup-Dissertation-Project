@@ -6,10 +6,11 @@ import Deaths from './pages/Deaths';
 import Cases from './pages/Cases';
 import Vaccination from './pages/Vaccination';
 import News from './pages/News';
-import NHS from './pages/NHS';
-import Laws from './pages/Laws';
+import BingSearch from './pages/BingSearch';
+import ChatGPT from './pages/ChatGPT';
 import Contact from './pages/Contact';
 import About from './pages/About';
+
 function App() {
   return (
     <Router>
@@ -19,8 +20,8 @@ function App() {
         <Route path="/cases" component={Cases} />
         <Route path="/vaccination" component={Vaccination} />
         <Route path="/news" component={News} />
-        <Route path="/nhs" component={NHS} />
-        <Route path="/laws" component={Laws} />
+        <Route path="/bingsearch" component={BingSearch} />
+        <Route path="/chatgpt" component={ChatGPT} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route component={Home} />

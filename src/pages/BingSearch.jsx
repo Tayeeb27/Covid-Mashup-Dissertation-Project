@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function NHS() {
+function BingSearch() {
   const [results, setResults] = useState([]);
 
   const search = async () => {
@@ -36,4 +36,4 @@ function NHS() {
   );
 }
 
-export default NHS;
+export default BingSearch;
