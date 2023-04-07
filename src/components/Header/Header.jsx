@@ -15,15 +15,12 @@ function Banner() {
                 <a href="Vaccination">Vaccination</a>
                 <a href="News">News</a>
                 <a href="BingSearch">BingSearch</a>
-                <a href="Laws">Laws</a>
+                <a href="ChatGPT">ChatGPT</a>
               </div>
             </li>
             <li><a href="Contact">Contact</a></li>
             <li><a href="About">About</a></li>
-            <li className="search">
-              <input type="text" placeholder="Search" />
-              <button>Search</button>
-            </li>
+            
           </ul>
         </div>
       </div>

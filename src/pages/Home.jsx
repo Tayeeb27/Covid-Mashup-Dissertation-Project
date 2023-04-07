@@ -20,9 +20,7 @@ function Home() {
     }
   };
 
-  const casesChart = CasesAPI();
-  const deathsChart = DeathsAPI();
-  const vaccinationChart = VaccinationAPI();
+ 
   useEffect(() => {
     handleSearch();
   }, []);
@@ -37,19 +35,19 @@ function Home() {
         <div className="box-container" id="Home">
           <h2>Deaths</h2>
           <div className="box" id="Home">
-            {deathsChart}
+          <DeathsAPI region={'UK'}/>
           </div>
         </div>
         <div className="box-container" id="Home">
           <h2>Cases</h2>
           <div className="box" id="Home">
-            {casesChart}
+          <CasesAPI region={'UK'}/>
           </div>
         </div>
         <div className="box-container" id="Home">
           <h2>Vaccinations</h2>
           <div className="box" id="Home">
-            {vaccinationChart}
+          <VaccinationAPI region={'UK'}/>
           </div>
         </div>
         </div>
@@ -77,8 +75,8 @@ function Home() {
           </div>
         </div>
         <div className="box-container" id="Home">
-          <h2>Chatgpt</h2>
-          <div className="box">
+          <h2>ChatGPT</h2>
+          <div className="box"id="HomeNews">
           <ChatGPTAPI/>
           </div>
         </div>

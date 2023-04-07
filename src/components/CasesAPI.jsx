@@ -2,23 +2,31 @@ import React, {useEffect, useState } from "react";
 import axios from "axios";
 import {Chart} from "chart.js";
 
-const endpoint = 'https://api.coronavirus.data.gov.uk/v1/data?/v1/data?filters=areaName=England;areaType=nation&'+'structure={"date":"date","name":"areaName","code":"areaCode","newCasesByPublishDate":"newCasesByPublishDate","cumCasesByPublishDate":"cumCasesByPublishDate","newDeaths28DaysByPublishDate":"newDeaths28DaysByPublishDate","cumDeaths28DaysByPublishDate":"cumDeaths28DaysByPublishDate"}';
-
-export const CasesAPI = () => {
+export const CasesAPI = ({region}) => {
     const [data, setData] = useState([]);
     const [casesChart, setCasesChart] = useState(null); // keep track of the chart instance
   
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(endpoint);
-          setData(response.data.data);
-        } catch (error) {
-          console.log(error);
+    const fetchData = async () => {
+      try {
+        let endpoint = "";
+        if (region === "UK") {
+          endpoint =
+            "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
+        } else {
+          endpoint =
+            "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=" +
+            region +
+            "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
         }
-      };
-      fetchData();
-    }, []);
+        const response = await axios.get(endpoint);
+        setData(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [region]);
   
     useEffect(() => {
       const ctx = document.getElementById("covid-cases-chart");
@@ -61,7 +69,7 @@ export const CasesAPI = () => {
       }
     }, [data]);
   
-    return <canvas id="covid-cases-chart" width="400" height="400"></canvas>;
+    return <canvas id="covid-cases-chart"width="400" height="300"></canvas>;
   };
   
   export default CasesAPI;
