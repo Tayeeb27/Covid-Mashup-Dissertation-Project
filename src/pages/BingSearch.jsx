@@ -1,39 +1,45 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { Fragment, useEffect, useState} from "react";
+import Header from "../components/Header/Header";
+import "./BingSearch.css"
+import {SearchAPI} from '../components/SearchAPI'
 
-function BingSearch() {
-  const [results, setResults] = useState([]);
+const BingSearch = () => {
+  const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const search = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.bing.microsoft.com/v7.0/search?q=coronavirus`,
-        {
-          headers: {
-            'Ocp-Apim-Subscription-Key': 'f0a619da5de24b5c8075784c7c650655'
-          }
-        }
-      );
-
-      setResults(response.data.webPages.value);
-    } catch (error) {
-      console.log(error);
+  const handleSearch = () => {
+    if (query.trim() === "") {
+      setSearchQuery("Coronavirus");
+    } else {
+      setSearchQuery(query);
     }
   };
 
-  return (
-    <div>
-      <button onClick={search}>Search</button>
-      <ul>
-        {results.map((result) => (
-          <li key={result.id}>
-            <a href={result.url}>{result.name}</a>
-            <p>{result.snippet}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+ 
+  useEffect(() => {
+    handleSearch();
+  }, []);
 
-export default BingSearch;
+    return (
+      <Fragment>
+        <Header />
+        <h3>On this page you will be able to see search results related to Covid-19 and through the search bar you will be able to search COVID related queries</h3>
+        <div className="container">
+          <h2>BingSearch</h2>
+          <div className="box-container" id="Search">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+            </div>
+        <div className="box"> 
+        <SearchAPI query={searchQuery}/>
+        </div>
+        </div>
+      </Fragment>
+    );
+  };
+  
+  export default BingSearch;

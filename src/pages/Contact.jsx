@@ -1,16 +1,31 @@
 import React, { useState } from "react";
 import Header from "../components/Header/Header";
 import "./Contact.css";
+import axios from "axios";
+
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can use a service to send the email
-    console.log(`Name: ${name}, Email: ${email}, Subject: ${subject}, Message: ${message}`);
+    const data = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    };
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/send-email",
+        data
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
