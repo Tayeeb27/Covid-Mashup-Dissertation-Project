@@ -1,0 +1,5 @@
+node version: v16.0.0
+npm version: 8.4.1
+npm install express, cors, openai, sib-api-v3-sdk
+node server.js
+npm start

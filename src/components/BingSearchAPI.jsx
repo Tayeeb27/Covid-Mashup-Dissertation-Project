@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const SearchAPI = (props) => {
+export const BingSearchAPI = (props) => {
   const [results, setResults] = useState([]);
 
   const search = async (query) => {
@@ -31,9 +31,9 @@ export const SearchAPI = (props) => {
     <div>
       <ul>
         {results.map((result) => (
-          <li key={result.id}>
-            <a href={result.url}>{result.name}</a>
-            <p>{result.snippet}</p>
+          <li key={result.id}id="News">
+            <h3 id="News"><a href={result.url} target="_blank" rel="noopener noreferrer" id="News">{result.name}</a></h3>
+            <p id="News">{result.snippet}</p>
           </li>
         ))}
       </ul>
@@ -41,4 +41,4 @@ export const SearchAPI = (props) => {
   );
 }
 
-export default SearchAPI;
+export default BingSearchAPI;

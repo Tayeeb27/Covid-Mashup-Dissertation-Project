@@ -6,7 +6,7 @@ export const NewsAPI = (props) => {
 
   const search = async (query) => {
     try {
-      const response = await axios.get('https://newsapi.org/v2/everything?q='+query +'&apiKey=483983670ab745b0b7f4dd3079fe46f2',
+      const response = await axios.get('https://newsapi.org/v2/everything?q='+query +'&searchIn=title&language=en&sortby=publishedAt&apiKey=483983670ab745b0b7f4dd3079fe46f2',
        );
       setNewsData(response.data.articles);
     } catch (error) {
@@ -24,11 +24,16 @@ export const NewsAPI = (props) => {
     <div>
       <ul>
         {newsData.map((article) => (
-          <li key={article.id}>
-            <h3>{article.title}</h3>
-            <p>{article.source.name}</p>
-            <a href={article.url}>{article.url}</a>
-          </li>
+         <li key={article.id}id="News">
+         <div>
+           <h3 id="News"><a href={article.url} target="_blank" rel="noopener noreferrer" id="News">{article.title}</a></h3>
+           <p id="News" >{article.source.name}</p>
+           <p id="News" >{article.content}</p>
+           <p id="News" >{article.author}</p>
+           <p id="News" >{article.publishedAt}</p>
+          
+         </div>
+       </li>
         ))}
       </ul>
     </div>

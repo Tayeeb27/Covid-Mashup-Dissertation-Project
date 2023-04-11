@@ -39,25 +39,21 @@ export const ChatGPTAPI =()=> {
 
   return (
     
-    <div className="container container-sm p-1">
+    <div className="container"id="ChatGPT">
       {" "}
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form className="form" onSubmit={handleSubmit}id="ChatGPT">
+        <div className="form-group"id="ChatGPT">
           <input
-            className="shadow-sm"
             type="text"
             placeholder="Enter text"
             value={prompt}
             onChange={handlePrompt}
           />
         </div>{" "}
-         {/* <button className="btn btn-accept w-100" type="submit">
-          Go
-        </button> */}
       </form>
-      <div className="bg-darkGreen  mt-2 p-1 border-5">
-        <p className="text-light">
-          {response ? response : "Ask me anything..."}
+      <div>
+        <p id="ChatGPT">
+          {response ? response : "Ask me anything about COVID-19..."}
         </p>
       </div>
     </div>

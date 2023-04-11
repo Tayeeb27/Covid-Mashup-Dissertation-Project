@@ -9,7 +9,7 @@ const News = () => {
 
   const handleSearch = () => {
     if (query.trim() === "") {
-      setSearchQuery("Coronavirus");
+      setSearchQuery("COVID-19"||"Coronavirus");
     } else {
       setSearchQuery(query);
     }
@@ -26,14 +26,14 @@ const News = () => {
         <h3>On this page you will be able to see News related to Covid-19 and through the search bar you will be able to search COVID related articles</h3>
         <div className="container">
           <h2>News</h2>
-          <div className="box-container" id="Search">
+        <div className="container" id="Search">
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
-            </div>
+         </div>
         <div className="box"> 
         <NewsAPI query={searchQuery}/>
         </div>

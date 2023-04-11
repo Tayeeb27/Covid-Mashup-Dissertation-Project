@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import Header from "../components/Header/Header";
 import "./BingSearch.css"
-import {SearchAPI} from '../components/SearchAPI'
+import {BingSearchAPI} from '../components/BingSearchAPI'
 
 const BingSearch = () => {
   const [query, setQuery] = useState("");
@@ -35,7 +35,7 @@ const BingSearch = () => {
             <button onClick={handleSearch}>Search</button>
             </div>
         <div className="box"> 
-        <SearchAPI query={searchQuery}/>
+        <BingSearchAPI query={searchQuery}/>
         </div>
         </div>
       </Fragment>
