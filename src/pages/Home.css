@@ -13,20 +13,27 @@ select {
   outline: none;
   box-shadow: none;
 }
-select:hover,
-select:focus {
-  border-color: #364EB9;
-}
 option {
   font-size: 1.2rem;
   padding: 0.5rem;
   background-color: #020C43;
   color: #fff;
 }
-option:hover {
-  background-color: #364EB9;
-  color: #364EB9;
+select:hover,
+select:focus{
+  border-color: #0624CF;
+  background-color: #0624CF;
+  
 }
+option:hover,
+option:focus{
+  border-color: #0624CF;
+  background-color: #0624CF;
+  
+}
+
+
+
 p {
   display: inline-block;
   margin: 0;

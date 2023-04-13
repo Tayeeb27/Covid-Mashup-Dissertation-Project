@@ -35,8 +35,8 @@ function Home() {
       </h3>
       <div className="container">
         <label htmlFor="region">Region:</label>
-        <select id="region" value={selectedRegion} onChange={handleRegionChange}>
-          <option value="UK">UK</option>
+        <select value={selectedRegion} onChange={handleRegionChange}>
+          <option value="UK" >UK</option>
           <option value="Wales">Wales</option>
           <option value="England">England</option>
           <option value="Scotland">Scotland</option>

@@ -1,9 +1,12 @@
 import React from 'react';
 import "./Header.css";
+import logo from "./Logo.png";
 function Banner() {
     return (
       <div className="banner">
-        <div className="title">COVID Mashup Project</div>
+        <div className="logo">
+        <img src={logo} alt="COVID Mashup Project" />
+      </div>
         <div className="navigation">
           <ul>
             <li><a href="Home">Home</a></li>
