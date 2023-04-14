@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import "./Home.css";
 import { CasesAPI } from '../components/CasesAPI';
 import { DeathsAPI } from '../components/DeathsAPI';
@@ -25,13 +26,16 @@ function Home() {
   useEffect(() => {
     handleSearch();
   }, []);
+  const [showDeaths, setShowDeaths] = useState(true);
+  const [showCases, setShowCases] = useState(true);
+  const [showVaccinations, setShowVaccinations] = useState(true);
   
   return (
     <Fragment>
       <Header />
       <h3>
-        A web application with all the information and data you need to know
-        regarding COVID-19 in the UK
+      The COVID MASHUP PROJECT is an essential resource for staying informed and making informed decisions. This comprehensive and dynamic web application provides real-time data and cutting-edge analytics on the COVID-19 pandemic in the United Kingdom. 
+      
       </h3>
       <div className="container">
         <label htmlFor="region">Region:</label>
@@ -42,7 +46,7 @@ function Home() {
           <option value="Scotland">Scotland</option>
           <option value="Northern Ireland">Northern Ireland</option>
         </select>
-        <p>Using the dropdown you can specify the region you wish to see statistics on</p>
+        <p>With the convenient dropdown feature, you have the ability to easily select the specific region for which you wish to view COVID-19 statistics</p>
       </div>
       <div className="container" id="Home1">
         <div className="box-container" id="Home">
@@ -72,7 +76,7 @@ function Home() {
               onChange={(e) => setQuery(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
-            <p id="Search"> Any queries made in the search will display in the news and Bing Search box</p>
+            <p id="Search"> Searches conducted through the search bar will be displayed in both the news section and the Bing Search box, providing you with a comprehensive and diverse range of results. Whether you are looking for the latest news updates or seeking more in-depth information, this feature ensures that you have access to a broad spectrum of resources to meet your needs.</p>
         </div>
         <div className="container" id="Home2">
         <div className="box-container" id="Home">
@@ -95,7 +99,7 @@ function Home() {
           </div>
         </div>
         </div>
-
+    <Footer/>
     </Fragment>
   );
 }

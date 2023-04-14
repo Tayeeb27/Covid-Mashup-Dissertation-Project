@@ -51,7 +51,7 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
   grid-gap: 20px; /* Spacing between the boxes */
-  margin-top: 20px;
+  margin-top: 35px;
   
 }
 h2 {
@@ -97,7 +97,7 @@ h3 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   height: 300px; /* set a fixed height */
-  width:370px;
+  width:365px;
   overflow-y: auto;
   border-color: #020C43;
 }
