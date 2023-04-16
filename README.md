@@ -1,3 +1,11 @@
+To run this, you must have:
+node version: v16.0.0
+npm version: 8.4.1
+Then you must run: npm install
+Then run: node server.js
+Finally run: npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -8,14 +8,19 @@ import { NewsAPI } from '../components/NewsAPI';
 import { VaccinationAPI } from '../components/VaccinationAPI';
 import { BingSearchAPI } from '../components/BingSearchAPI';
 import { ChatgptAPI } from '../components/ChatgptAPI';
+
 function Home() {
+  // State variables for selected region, search query
   const [selectedRegion, setSelectedRegion] = useState("UK");
+  const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+ 
+  // Function to handle region selection
   const handleRegionChange = (event) => {
     setSelectedRegion(event.target.value);
   };
 
-  const [query, setQuery] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  // Function to handle search bar query
   const handleSearch = () => {
     if (query.trim() === "") {
       setSearchQuery("COVID-19"||"Coronavirus");
@@ -23,19 +28,19 @@ function Home() {
       setSearchQuery(query);
     }
   };
+
+  // useEffect hook to handle initial search bar query
   useEffect(() => {
     handleSearch();
   }, []);
-  const [showDeaths, setShowDeaths] = useState(true);
-  const [showCases, setShowCases] = useState(true);
-  const [showVaccinations, setShowVaccinations] = useState(true);
+
+  // Main component rendering HTML and other components
   
   return (
     <Fragment>
       <Header />
       <h3>
       The COVID MASHUP PROJECT is an essential resource for staying informed and making informed decisions. This comprehensive and dynamic web application provides real-time data and cutting-edge analytics on the COVID-19 pandemic in the United Kingdom. 
-      
       </h3>
       <div className="container">
         <label htmlFor="region">Region:</label>
@@ -68,7 +73,6 @@ function Home() {
           </div>
         </div>
         </div>
-        
         <div className="box-container" id="Search">
             <input
               type="text"
@@ -84,8 +88,7 @@ function Home() {
           <div className="box" id="HomeNews">
             <NewsAPI query={searchQuery}/>
           </div>
-        </div>
-        
+        </div>    
         <div className="box-container" id="Home">
           <h2>Bing Search</h2>
           <div className="box" id="HomeNews">

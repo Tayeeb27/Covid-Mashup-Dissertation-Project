@@ -4,12 +4,16 @@ import {Chart} from "chart.js";
 
 
 export const VaccinationAPI = ({region}) => {
+    // Define state variables
     const [data, setData] = useState([]);
-    const [vaccinationChart, setVaccinationChart] = useState(null); // keep track of the chart instance
-  
+    // keep track of the chart instance
+    const [vaccinationChart, setVaccinationChart] = useState(null); 
+    
+    // Fetch data from API
     useEffect(() => {
       const fetchData = async () => {
         try {
+          // Define endpoint URL based on region selected
           let endpoint = "";
           if (region === "UK") {
             endpoint =
@@ -20,6 +24,7 @@ export const VaccinationAPI = ({region}) => {
               region +
               "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22cumVaccinesGivenByPublishDate%22:%22cumVaccinesGivenByPublishDate%22}";
           }
+          // Fetch data from endpoint and set state variable
           const response = await axios.get(endpoint);
           setData(response.data.data);
         } catch (error) {
@@ -29,16 +34,19 @@ export const VaccinationAPI = ({region}) => {
       fetchData();
     }, [region]);
   
+    // Render COVID-19 cases chart when data changes using Chart.js
     useEffect(() => {
       const ctx = document.getElementById("covid-vaccination-chart");
       if (ctx && data && data.length > 0) {
+         // Define labels and values for chart
         const labels = data.map((item) => item.date);
         const values = data.map((item) => item.cumVaccinesGivenByPublishDate);
   
         if (vaccinationChart) {
-          vaccinationChart.destroy(); // destroy the old chart instance
+          // destroy the old chart instance if it exists
+          vaccinationChart.destroy(); 
         }
-  
+        // Render new chart instance
         setVaccinationChart(
           new Chart(ctx, {
             type: "line",
@@ -69,7 +77,8 @@ export const VaccinationAPI = ({region}) => {
         );
       }
     }, [data]);
-  
+    
+    // Return a canvas element for rendering the chart
     return <canvas id="covid-vaccination-chart" width="400" height="300"></canvas>;
   };
   

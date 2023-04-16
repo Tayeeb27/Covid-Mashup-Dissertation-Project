@@ -1,40 +1,82 @@
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  
-  
-}
-label {
-  display: block;
-  width: 100px;
-  text-align: left;
-  margin-right: 140px;
+* {
+  box-sizing: border-box;
 }
 
-input {
-  flex: 1;
-  margin-left: 10px;
-  
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f7f7f7;
 }
-textarea {
-  flex: 1;
-  margin-left: 10px;
-  padding:40px;
+
+h1 {
+  margin-top: 40px;
+  text-align: center;
 }
-  
-  button[type="submit"] {
-    padding: 0.5rem 1rem;
-    background-color: #0077c2;
-    color: #fff;
-    border-radius: 0.25rem;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form > div {
+  margin-bottom: 20px;
+}
+
+form > div > label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form > div > input,
+form > div > textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+form > div > textarea {
+  height: 150px;
+}
+
+form > button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form > button:hover {
+  background-color: #005fa3;
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    padding: 10px;
   }
   
-  button[type="submit"]:hover {
-    background-color: #005ea5;
+  form > div > input,
+  form > div > textarea {
+    padding: 5px;
+    font-size: 14px;
   }
   
+  form > div > textarea {
+    height: 100px;
+  }
+  
+  form > button {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+}

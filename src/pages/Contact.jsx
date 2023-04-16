@@ -4,13 +4,16 @@ import "./Contact.css";
 import axios from "axios";
 
 const Contact = () => {
+  // Define state variables for name, email, subject, and message
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Create an object containing the form data
     const data = {
       name: name,
       email: email,
@@ -18,11 +21,17 @@ const Contact = () => {
       message: message,
     };
     try {
+      // Send a POST request to the server with the form data
       const response = await axios.post(
         "http://localhost:8080/send-email",
         data
       );
-      console.log(response.data);
+      // Display a success message and reset the form
+      window.alert("Email sent successfully!");
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
     } catch (error) {
       console.error(error);
     }
@@ -61,7 +70,9 @@ const Contact = () => {
           />
         </div>
         <div>
-          <label htmlFor="message"id="message" >Message </label>
+          <label htmlFor="message" id="message">
+            Message
+          </label>
           <textarea
             id="message"
             value={message}
