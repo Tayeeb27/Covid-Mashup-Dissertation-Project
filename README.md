@@ -1,9 +1,9 @@
 To run this, you must have:
-node version: v16.0.0
-npm version: 8.4.1
-Then you must run: npm install
-Then run: node server.js
-Finally run: npm start
+node version: v16.0.0,
+npm version: 8.4.1,
+Then you must run: 'npm install',
+Then run: 'node server.js',
+Finally run: 'npm start'
 
 
 # Getting Started with Create React App
