@@ -24,6 +24,7 @@
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.6",
     "sib-api-v3-sdk": "^8.5.0",
+    "twitter-api-v2": "^1.14.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

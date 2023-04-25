@@ -15,7 +15,8 @@ useEffect(() => {
           let endpoint = "";
           if (region === "UK") {
               endpoint =
-                  "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
+                  "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,"+
+                  "%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
           } else {
               endpoint =
                   "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=" +

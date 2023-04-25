@@ -6,7 +6,7 @@ import { CasesAPI } from '../components/CasesAPI';
 import { DeathsAPI } from '../components/DeathsAPI';
 import { NewsAPI } from '../components/NewsAPI';
 import { VaccinationAPI } from '../components/VaccinationAPI';
-import { BingSearchAPI } from '../components/BingSearchAPI';
+import { ScholarSearchAPI } from '../components/ScholarSearchAPI';
 import { ChatgptAPI } from '../components/ChatgptAPI';
 
 function Home() {
@@ -80,7 +80,7 @@ function Home() {
               onChange={(e) => setQuery(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
-            <p id="Search"> Searches conducted through the search bar will be displayed in both the news section and the Bing Search box, providing you with a comprehensive and diverse range of results. Whether you are looking for the latest news updates or seeking more in-depth information, this feature ensures that you have access to a broad spectrum of resources to meet your needs.</p>
+            <p id="Search"> Searches conducted through the search bar will be displayed in both the news section and the Scholar Search box, providing you with a comprehensive and diverse range of results. Whether you are looking for the latest news updates or seeking more in-depth information, this feature ensures that you have access to a broad spectrum of resources to meet your needs.</p>
         </div>
         <div className="container" id="Home2">
         <div className="box-container" id="Home">
@@ -90,9 +90,9 @@ function Home() {
           </div>
         </div>    
         <div className="box-container" id="Home">
-          <h2>Bing Search</h2>
+          <h2>Scholar Search</h2>
           <div className="box" id="HomeNews">
-            <BingSearchAPI query={searchQuery} />
+           {/*<ScholarSearchAPI query={searchQuery} />*/}
           </div>
         </div>
         <div className="box-container" id="Home">
@@ -101,6 +101,7 @@ function Home() {
           <ChatgptAPI/>
           </div>
         </div>
+        
         </div>
     <Footer/>
     </Fragment>

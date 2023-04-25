@@ -17,12 +17,13 @@ export const VaccinationAPI = ({region}) => {
           let endpoint = "";
           if (region === "UK") {
             endpoint =
-              "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22cumVaccinesGivenByPublishDate%22:%22cumVaccinesGivenByPublishDate%22}";
+              "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,"+
+              "%22newVaccinesGivenByPublishDate%22:%22newVaccinesGivenByPublishDate%22}";
           } else {
             endpoint =
               "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=" +
               region +
-              "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22cumVaccinesGivenByPublishDate%22:%22cumVaccinesGivenByPublishDate%22}";
+              "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newVaccinesGivenByPublishDate%22:%22newVaccinesGivenByPublishDate%22}";
           }
           // Fetch data from endpoint and set state variable
           const response = await axios.get(endpoint);
@@ -40,7 +41,7 @@ export const VaccinationAPI = ({region}) => {
       if (ctx && data && data.length > 0) {
          // Define labels and values for chart
         const labels = data.map((item) => item.date);
-        const values = data.map((item) => item.cumVaccinesGivenByPublishDate);
+        const values = data.map((item) => item.newVaccinesGivenByPublishDate);
   
         if (vaccinationChart) {
           // destroy the old chart instance if it exists
