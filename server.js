@@ -64,39 +64,8 @@ res.status(500).send('Error sending email');
 }
 });
 
-// Twitter API endpoint
-app.get("/tweets", async (req, res) => {
-    const query = req.query.q;
-  
-    if (!query) {
-      res.status(400).send("Please provide a search query");
-      return;
-    }
-  
-    try {
-      const response = await axios.get(
-        "https://twitter135.p.rapidapi.com/Search/",
-        {
-          params: {
-            q: query,
-            count: 5,
-          },
-          headers: {
-            "X-RapidAPI-Key": "6783ceb69amshc90cde7ec62a81cp1cda7ajsnd959dbaa7d0f",
-            "X-RapidAPI-Host": "twitter135.p.rapidapi.com",
-          },
-        }
-      );
-      res.send(response.data);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Error retrieving tweets");
-    }
-  });
-
 // Set up port to listen to incoming requests
-// Set up port to listen to incoming requests
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+console.log('Server is running on port: ${PORT}');
 });

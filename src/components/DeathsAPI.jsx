@@ -52,7 +52,6 @@ export const DeathsAPI = ({ region }) => {
         deathChart.destroy(); 
       }
 
-      // Render new chart instance
       setDeathChart(
         new Chart(ctx, {
           type: "line",
@@ -81,11 +80,9 @@ export const DeathsAPI = ({ region }) => {
             tooltips: {
               callbacks: {
                 label: function (tooltipItem, data) {
-                  if (tooltipItem.index === data.labels.length - 1) {
-                    return "Last Modified: " + lastModified;
-                  } else {
-                    return "Deaths: " + tooltipItem.yLabel;
-                  }
+                  const deathsLabel = "Deaths: " + tooltipItem.yLabel;
+                  const lastModifiedLabel = "Last Modified: " + lastModified;
+                  return [deathsLabel, lastModifiedLabel];
                 },
               },
             },
@@ -93,17 +90,17 @@ export const DeathsAPI = ({ region }) => {
         })
       );
     }
-  }, [data, lastModified]);
-
-  // Return a canvas element for rendering the chart
-  return(
-   <div>
-   <canvas id="covid-death-chart" width="400" height="300"></canvas>
-  {lastModified && (
-    <p>Last modified: {new Date(lastModified).toLocaleString()}</p>
-  )}
-  </div>
-  );
+    }, [data, lastModified]);
+  
+    // Return a canvas element for rendering the chart
+    return (
+      <div>
+        <canvas id="covid-death-chart" width="400" height="300"></canvas>
+        {lastModified && (
+          <p>Last modified: {new Date(lastModified).toLocaleString()}</p>
+        )}
+      </div>
+    );
   };
   
   export default DeathsAPI;

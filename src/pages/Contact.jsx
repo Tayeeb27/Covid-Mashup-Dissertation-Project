@@ -41,6 +41,15 @@ const Contact = () => {
     <div>
       <Header />
       <h1>Contact Us</h1>
+      <div className="intro">
+  <h2>We Value Your Feedback</h2>
+  <p>
+    Your feedback is essential for the continuous improvement of our project. We believe that understanding the needs and experiences of our users plays a crucial role in creating a better, more user-friendly application. If you have any suggestions, questions, or concerns, please don't hesitate to get in touch with us.
+  </p>
+  <p>
+    By sharing your thoughts and ideas, you're actively contributing to the development and success of this project. Thank you for your support and for helping us make this application the best it can be!
+  </p>
+</div>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name</label>

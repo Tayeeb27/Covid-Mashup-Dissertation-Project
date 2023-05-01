@@ -6,7 +6,7 @@ export const CasesAPI = ({region}) => {
   // Define state variables
   const [data, setData] = useState([]);
   const [casesChart, setCasesChart] = useState(null); // keep track of the chart instance
-  
+  const [lastModified, setLastModified] = useState(null);
 // Fetch data from API
 useEffect(() => {
   const fetchData = async () => {
@@ -26,6 +26,8 @@ useEffect(() => {
           // Fetch data from endpoint and set state variable
           const response = await axios.get(endpoint);
           setData(response.data.data);
+        const lastModifiedHeader = response.headers["last-modified"];
+        setLastModified(lastModifiedHeader);
       } catch (error) {
           console.log(error);
       }
@@ -72,14 +74,30 @@ useEffect(() => {
                           },
                       ],
                   },
+            tooltips: {
+              callbacks: {
+                label: function (tooltipItem, data) {
+                  const casesLabel = "Cases: " + tooltipItem.yLabel;
+                  const lastModifiedLabel = "Last Modified: " + lastModified;
+                  return [casesLabel, lastModifiedLabel];
+                  },
+              },
+            },
               },
           })
       );
   }
-}, [data]);
+}, [data, lastModified]);
 
 // Return a canvas element for rendering the chart
-return <canvas id="covid-cases-chart"width="400" height="300"></canvas>;
+ return (
+      <div>
+        <canvas id="covid-cases-chart" width="400" height="300"></canvas>
+        {lastModified && (
+          <p>Last modified: {new Date(lastModified).toLocaleString()}</p>
+        )}
+      </div>
+    );
 
   };
   

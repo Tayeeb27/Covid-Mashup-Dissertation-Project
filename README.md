@@ -5,6 +5,7 @@ Then you must run: 'npm install',
 Then run: 'node server.js',
 Finally run: 'npm start'
 
+Note: If Scholar API doesn't work visit https://cors-anywhere.herokuapp.com/corsdemo and request access to the demo version and you will get access immediately and it should work.
 
 # Getting Started with Create React App
 

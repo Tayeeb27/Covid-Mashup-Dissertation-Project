@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Header.css";
 import logo from "./Logo.png";
-function Banner() {
+function Header() {
     return (
       <div className="banner">
         <div className="logo">
@@ -19,4 +19,4 @@ function Banner() {
     );
   }
   
-  export default Banner;
+  export default Header;

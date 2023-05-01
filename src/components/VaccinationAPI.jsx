@@ -8,6 +8,7 @@ export const VaccinationAPI = ({region}) => {
     const [data, setData] = useState([]);
     // keep track of the chart instance
     const [vaccinationChart, setVaccinationChart] = useState(null); 
+    const [lastModified, setLastModified] = useState(null);
     
     // Fetch data from API
     useEffect(() => {
@@ -28,6 +29,8 @@ export const VaccinationAPI = ({region}) => {
           // Fetch data from endpoint and set state variable
           const response = await axios.get(endpoint);
           setData(response.data.data);
+          const lastModifiedHeader = response.headers["last-modified"];
+        setLastModified(lastModifiedHeader);
         } catch (error) {
           console.log(error);
         }
@@ -73,14 +76,30 @@ export const VaccinationAPI = ({region}) => {
                   },
                 ],
               },
+              tooltips: {
+                callbacks: {
+                  label: function (tooltipItem, data) {
+                    const vaccinationLabel = "Vaccination: " + tooltipItem.yLabel;
+                    const lastModifiedLabel = "Last Modified: " + lastModified;
+                    return [vaccinationLabel, lastModifiedLabel];
+                  },
+                },
+              },
             },
           })
         );
       }
-    }, [data]);
+    }, [data, lastModified]);
     
     // Return a canvas element for rendering the chart
-    return <canvas id="covid-vaccination-chart" width="400" height="300"></canvas>;
+    return (
+      <div>
+        <canvas id="covid-vaccination-chart" width="400" height="300"></canvas>
+        {lastModified && (
+          <p>Last modified: {new Date(lastModified).toLocaleString()}</p>
+        )}
+      </div>
+    );
   };
   
   export default VaccinationAPI;
