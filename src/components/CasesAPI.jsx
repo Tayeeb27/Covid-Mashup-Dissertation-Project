@@ -10,30 +10,40 @@ export const CasesAPI = ({region}) => {
 // Fetch data from API
 useEffect(() => {
   const fetchData = async () => {
-      try {
-        // Define endpoint URL based on region selected
-          let endpoint = "";
-          if (region === "UK") {
-              endpoint =
-                  "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,"+
-                  "%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
-          } else {
-              endpoint =
-                  "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=" +
-                  region +
-                  "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
-          }
-          // Fetch data from endpoint and set state variable
-          const response = await axios.get(endpoint);
-          setData(response.data.data);
-        const lastModifiedHeader = response.headers["last-modified"];
-        setLastModified(lastModifiedHeader);
-      } catch (error) {
-          console.log(error);
+    try {
+      let endpoint = "";
+      if (region === "UK") {
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const targetUrl = 'https://covid19.who.int/WHO-COVID-19-global-data.csv';
+        const response = await axios.get(proxyUrl + targetUrl);
+        const parsedData = parseWHOData(response.data, 'GB');
+        setData(parsedData.reverse());
+        setLastModified(response.headers["last-modified"]);
+      } else {
+        endpoint =
+          "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=" +
+          region +
+          "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22}";
+        const response = await axios.get(endpoint);
+        setData(response.data.data);
+        setLastModified(response.headers["last-modified"]);
       }
+    } catch (error) {
+      console.log(error);
+    }
   };
   fetchData();
 }, [region]);
+
+// Function to parse WHO data
+const parseWHOData = (csvData, countryCode) => {
+  const rows = csvData.split('\n');
+  const parsedData = rows
+    .map(row => row.split(','))
+    .filter(row => row[1] === countryCode)
+    .map(row => ({ date: row[0], newCasesByPublishDate: Number(row[4]) }));
+  return parsedData.reverse();
+};
 
 // Render COVID-19 cases chart when data changes using Chart.js
 useEffect(() => {

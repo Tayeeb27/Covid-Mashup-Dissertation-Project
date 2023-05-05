@@ -134,6 +134,7 @@ const Home = () => {
       <ChatgptAPI />
     </div>
   </div>
+ 
 </div>
 <Footer />
 </Fragment>

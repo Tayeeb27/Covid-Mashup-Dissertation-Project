@@ -19,16 +19,16 @@ export const VaccinationAPI = ({region}) => {
           if (region === "UK") {
             endpoint =
               "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,"+
-              "%22newVaccinesGivenByPublishDate%22:%22newVaccinesGivenByPublishDate%22}";
+              "%22cumPeopleVaccinatedSecondDoseByVaccinationDate%22:%22cumPeopleVaccinatedSecondDoseByVaccinationDate%22}";
           } else {
             endpoint =
               "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=" +
               region +
-              "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newVaccinesGivenByPublishDate%22:%22newVaccinesGivenByPublishDate%22}";
+              "&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22cumPeopleVaccinatedSecondDoseByVaccinationDate%22:%22cumPeopleVaccinatedSecondDoseByVaccinationDate%22}";
           }
           // Fetch data from endpoint and set state variable
           const response = await axios.get(endpoint);
-          setData(response.data.data);
+          setData(response.data.data.reverse());
           const lastModifiedHeader = response.headers["last-modified"];
         setLastModified(lastModifiedHeader);
         } catch (error) {
@@ -44,7 +44,7 @@ export const VaccinationAPI = ({region}) => {
       if (ctx && data && data.length > 0) {
          // Define labels and values for chart
         const labels = data.map((item) => item.date);
-        const values = data.map((item) => item.newVaccinesGivenByPublishDate);
+        const values = data.map((item) => item.cumPeopleVaccinatedSecondDoseByVaccinationDate);
   
         if (vaccinationChart) {
           // destroy the old chart instance if it exists
