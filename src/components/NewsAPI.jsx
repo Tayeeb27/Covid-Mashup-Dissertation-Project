@@ -8,7 +8,8 @@ export const NewsAPI = (props) => {
   const search = async (query) => {
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&searchIn=title&language=en&sortby=publishedAt&sources=bbc-news,cnn,independent,the-washington-post,bloomberg,politico,abc-news,nbc-news,cbs-news,time,google-news-uk,mtv-news-uk,the-lad-bible,associated-press,reuters&apiKey=483983670ab745b0b7f4dd3079fe46f2`
+        "https://newsapi.org/v2/everything?q=${query}&searchIn=title&language=en&sortby=publishedAt&sources=bbc-news,cnn,"+
+        "independent,the-washington-post,bloomberg,politico,abc-news,nbc-news,cbs-news,time,google-news-uk,mtv-news-uk,the-lad-bible,associated-press,reuters&apiKey=483983670ab745b0b7f4dd3079fe46f2"
       );
       setNewsData(response.data.articles); // Save response data to newsData state variable
     } catch (error) {

@@ -9,8 +9,6 @@ export const DeathsAPI = ({ region }) => {
   const [deathChart, setDeathChart] = useState(null);
   // store the last modified date
   const [lastModified, setLastModified] = useState(null);
-
-  // Fetch data and last modified date from API
   // Fetch data and last modified date from API
 useEffect(() => {
   const fetchData = async () => {
@@ -39,7 +37,6 @@ useEffect(() => {
   };
   fetchData();
 }, [region]);
-
 // Function to parse WHO data
 const parseWHOData = (csvData, countryCode) => {
   const rows = csvData.split('\n');
@@ -49,8 +46,6 @@ const parseWHOData = (csvData, countryCode) => {
     .map(row => ({ date: row[0], newDailyNsoDeathsByDeathDate: Number(row[6]) }));
   return parsedData.reverse(); // Reverse the data array
 };
-
-
   // Render COVID-19 deaths chart when data changes using Chart.js
   useEffect(() => {
     const ctx = document.getElementById("covid-death-chart");
@@ -58,12 +53,10 @@ const parseWHOData = (csvData, countryCode) => {
       // Define labels and values for chart
       const labels = data.map((item) => item.date);
       const values = data.map((item) => item.newDailyNsoDeathsByDeathDate);
-
       if (deathChart) {
         // destroy the old chart instance if it exists
         deathChart.destroy(); 
       }
-
       setDeathChart(
         new Chart(ctx, {
           type: "line",
@@ -76,32 +69,21 @@ const parseWHOData = (csvData, countryCode) => {
                 backgroundColor: "rgba(54, 162, 235, 0.2)",
                 borderColor: "#020C43",
                 borderWidth: 1,
-              },
-            ],
-          },
+              },],},
           options: {
             scales: {
               yAxes: [
                 {
                   ticks: {
                     beginAtZero: true,
-                  },
-                },
-              ],
-            },
+                  },},],},
             tooltips: {
               callbacks: {
                 label: function (tooltipItem, data) {
                   const deathsLabel = "Deaths: " + tooltipItem.yLabel;
                   const lastModifiedLabel = "Last Modified: " + lastModified;
                   return [deathsLabel, lastModifiedLabel];
-                },
-              },
-            },
-          },
-        })
-      );
-    }
+                },},},},}));}
     }, [data, lastModified]);
   
     // Return a canvas element for rendering the chart
