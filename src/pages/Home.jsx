@@ -27,10 +27,14 @@ const Home = () => {
   };
 
   const handleSearch = () => {
-    if (query.trim() === "") {
+    const queryLowercase = query.toLowerCase(); // Convert the query to lowercase to ignore case sensitivity
+  
+    if (queryLowercase.trim() === "") {
       setSearchQuery("COVID-19" || "Coronavirus");
+    } else if (/covid|coronavirus/i.test(queryLowercase)) { // Only allow COVID-related queries
+      setSearchQuery(queryLowercase);
     } else {
-      setSearchQuery(query);
+      alert("Please enter a COVID-related query. Note: query must include covid or coronavirus");
     }
   };
 
