@@ -42,7 +42,7 @@ res.send(completion.data.choices[0].text);
 // Set API key for Sendinblue
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = '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';
 
 // Set up endpoint to send email using Sendinblue API
 app.post('/send-email', async (req, res) => {
