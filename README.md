@@ -1,9 +1,10 @@
-To run this, you must have:
+node To run this, you must have:
 node version: v16.0.0,
 npm version: 8.4.1,
 Then you must run: 'npm install',
 Then run: 'node server.js',
 Finally run: 'npm start'
+Also create a  .env and include a PORT number for the server and your API Keys for Brevo and OpenAI
 
 Also visit https://cors-anywhere.herokuapp.com/corsdemo and request access to the demo version and you will get access immediately and it everything should work.
 
@@ -18,7 +19,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000] to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.

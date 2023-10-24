@@ -7,7 +7,7 @@ export const ChatgptAPI =()=> {
   const [response, setResponse] = useState("");
 
   // Define the API endpoint for the Chatbot API
-  const HTTP = "http://localhost:8080/chat";
+  const HTTP = "http://localhost:3000/chat";
 
   // Handle form submission
   const handleSubmit = (e) => {

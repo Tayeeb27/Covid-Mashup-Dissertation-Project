@@ -23,7 +23,7 @@ const Contact = () => {
     try {
       // Send a POST request to the server with the form data
       const response = await axios.post(
-        "http://localhost:8080/send-email",
+        "http://localhost:3000/send-email",
         data
       );
       // Display a success message and reset the form

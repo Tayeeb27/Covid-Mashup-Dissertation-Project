@@ -3,10 +3,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Configuration, OpenAIApi } = require("openai");
 const SibApiV3Sdk = require('sib-api-v3-sdk');
+require('dotenv').config()
 
 // Set up OpenAI API configuration
 const config = new Configuration({
-apiKey: "sk-2yby0adrLKDtKVxYMtEST3BlbkFJeVVXwpWS9rnBajx1adlZ",
+apiKey: process.env.API_KEY_OA,
 });
 
 // Create an instance of OpenAI API
@@ -42,7 +43,7 @@ res.send(completion.data.choices[0].text);
 // Set API key for Sendinblue
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = process.env.API_KEY_SB;
 
 // Set up endpoint to send email using Sendinblue API
 app.post('/send-email', async (req, res) => {
@@ -65,7 +66,7 @@ res.status(500).send('Error sending email');
 });
 
 // Set up port to listen to incoming requests
-const PORT = 8080;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
-console.log('Server is running on port: ${PORT}');
+console.log(`Server is running on port: ${PORT}`);
 });
