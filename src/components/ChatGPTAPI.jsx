@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export const ChatgptAPI =()=> {
+export const ChatGPTAPI =()=> {
   // Initialize state variables for the prompt and response
   const [prompt, setPrompt] = useState("What is COVID-19?");
   const [response, setResponse] = useState("");
@@ -69,4 +69,4 @@ export const ChatgptAPI =()=> {
   );
 }
 
-export default ChatgptAPI;
+export default ChatGPTAPI;

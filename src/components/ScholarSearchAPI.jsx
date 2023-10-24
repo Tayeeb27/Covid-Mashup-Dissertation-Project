@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import apiKey from './api-key';
 const SERP_API_URL = 'https://cors-anywhere.herokuapp.com/https://serpapi.com/search';
-const API_KEY = '9f83af91ba286ff1311eeb74ef106297f24e61837b67c356d241593d7112bae9'; 
+const API_KEY = apiKey; 
 
 export const ScholarSearchAPI = (props) => {
   const [results, setResults] = useState([]);

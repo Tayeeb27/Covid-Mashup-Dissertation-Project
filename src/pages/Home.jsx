@@ -7,7 +7,7 @@ import { DeathsAPI } from '../components/DeathsAPI';
 import { NewsAPI } from '../components/NewsAPI';
 import { VaccinationAPI } from '../components/VaccinationAPI';
 import { ScholarSearchAPI } from '../components/ScholarSearchAPI';
-import { ChatgptAPI } from '../components/ChatgptAPI';
+import { ChatGPTAPI } from '../components/ChatGPTAPI';
 
 const Home = () => {
   const tooltipRefs = useRef([]);
@@ -135,7 +135,7 @@ const Home = () => {
       </span>
     </h2>
     <div className="box" id="HomeNews">
-      <ChatgptAPI />
+      <ChatGPTAPI />
     </div>
   </div>
  
